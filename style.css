@@ -11,12 +11,12 @@ html, body{
 
 :root{
     --bg-primary-color: #0c0c0c;
-    --bg-fill-color: #fdfdfc;
-    --bg-food-color: #ff4757;
+    --bg-fill-color: #cece22;
+    --bg-food-color: #d92a39;
 
     --text-primary-color: #f0f0f0;
 
-    --border-primary-color: #333333;
+    --border-primary-color: #221f1f;
 
     --space-xs:4px;
     --space-sm:8px;
@@ -57,6 +57,18 @@ section .infos{
     justify-content: space-between;
 }
 
+.btn {
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
 .info{
     padding: var(--space-sm) var(--space-md);
     border: 1px solid var(--border-primary-color);
@@ -83,4 +95,40 @@ section .infos{
 
 .food {
     background-color: var(--bg-food-color);
+}
+
+.modal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    background-color: #35353587;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .start-game,
+.modal .game-over{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.modal .game-over{
+    display: none;
+}
+.developer-credit {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.developer-credit a {
+    color: #00ff99;
+    text-decoration: none;
 }
