@@ -92,7 +92,7 @@ startBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     intervalId = setInterval(() => {
         render();
-    }, 200);
+    }, 50);
     timerIntervalId = setInterval(() => {
         let [mins, secs] = time.split('-').map(Number);
         secs += 1;
@@ -126,7 +126,7 @@ function restartGame(){
     food = {x:Math.floor(Math.random() * rows), y:Math.floor(Math.random() * cols)};
     intervalId = setInterval(() => {
         render();
-    }, 200);
+    }, 50);
 }
 
 addEventListener('keydown', (e) => {
