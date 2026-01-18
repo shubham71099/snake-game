@@ -143,3 +143,41 @@ addEventListener('keydown', (e) => {
         direction = 'down';
     }
 });     
+
+let startX = 0;
+let startY = 0;
+
+board.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    startX = touch.clientX;
+    startY = touch.clientY;
+}, { passive: true });
+
+board.addEventListener('touchend', (e) => {
+    const touch = e.changedTouches[0];
+    const endX = touch.clientX;
+    const endY = touch.clientY;
+
+    const diffX = endX - startX;
+    const diffY = endY - startY;
+
+    // Ignore very small swipes
+    if (Math.abs(diffX) < 20 && Math.abs(diffY) < 20) return;
+
+    // Horizontal swipe
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0 && direction !== 'left') {
+            direction = 'right';
+        } else if (diffX < 0 && direction !== 'right') {
+            direction = 'left';
+        }
+    }
+    // Vertical swipe
+    else {
+        if (diffY > 0 && direction !== 'up') {
+            direction = 'down';
+        } else if (diffY < 0 && direction !== 'down') {
+            direction = 'up';
+        }
+    }
+});
